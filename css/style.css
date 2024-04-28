@@ -1,0 +1,241 @@
+@font-face {
+  font-family: "titlesFont";
+  src: url(../fonts/Chillax-Bold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "textFont";
+  src: url(../fonts/TriakisFont-Regular.otf) format("opentype");
+}
+
+:root {
+  --principalColor: #008dda;
+  --secondaryColor: #41c9e2;
+  --firstGradientColor: #263159;
+  --secondaryGradientColor: #0d0e14;
+  --shooterGenderColor: #ff5500;
+  --terrorGenderColor: #01091e;
+  --ArpgGenderColor: #cb890a;
+  --MmorpgGenderColor: #00801c;
+  --StrategyGenderColor: #05064f;
+  --MmoarpgGenderColor: #5a2a06;
+  --fightingGenderColor: #3d0102;
+  --mobaGenderColor: #8714b1;
+  --card: #060606;
+  --sport: #84ff00;
+  --Racing: #00e8ff;
+  --mmo: #0080ff;
+  --battleRoyele: #d33024;
+  --action: #ff0000;
+  --rpg: #ff8c00;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+a {
+  color: white;
+}
+.background {
+  background: linear-gradient(
+    var(--firstGradientColor),
+    var(--secondaryGradientColor)
+  );
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+p {
+  color: white;
+  font-family: textFont;
+  font-size: 1.5rem;
+}
+
+.gender {
+  font-family: titlesFont;
+  max-width: 11rem;
+  font-size: 1.3rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.Shooter {
+  background-color: var(--shooterGenderColor);
+}
+.Terror {
+  background-color: var(--terrorGenderColor);
+}
+.ARPG {
+  background-color: var(--ArpgGenderColor);
+}
+.MMORPG {
+  background-color: var(--MmorpgGenderColor);
+}
+.MMOARPG {
+  background-color: var(--MmoarpgGenderColor);
+}
+.Strategy {
+  background-color: var(--StrategyGenderColor);
+}
+.Fighting {
+  background-color: var(--fightingGenderColor);
+}
+.MOBA {
+  background-color: var(--mobaGenderColor);
+}
+.Card {
+  background-color: var(--card);
+}
+.Sports {
+  background-color: var(--sport);
+  color: black;
+}
+.Racing {
+  background-color: var(--Racing);
+  color: black;
+}
+.MMO {
+  background-color: var(--mmo);
+}
+.Battle {
+  background-color: var(--battleRoyele);
+}
+.Action {
+  background-color: var(--action);
+}
+.RPG {
+  background-color: var(--rpg);
+}
+/* header styles  */
+header {
+  display: flex;
+  align-items: center;
+  font-family: textfont;
+  gap: 2rem;
+  padding: 3em;
+  background: linear-gradient(70deg, #263159, #008eda00);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  justify-content: space-between;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.menuHeader {
+  display: flex;
+  gap: 1.5em;
+  font-size: 1.75rem;
+  font-weight: 200;
+}
+.profilePicture {
+  width: 3.5rem;
+}
+.rigthSection {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+}
+.inputSearch {
+  width: 80%;
+  position: relative;
+  border: none;
+}
+input:checked {
+  border: none;
+}
+.searchNav {
+  padding: 1.25rem;
+  width: 100%;
+  font-size: 1.25rem;
+  border-radius: 40px;
+  font-family: textfont;
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 25px 20px -12px;
+  border: none;
+}
+/* .searchButtonNav {
+  position: absolute;
+  right: -6rem;
+  top: 50%;
+  bottom: 50%;
+  transform: translate(-50%, -50%);
+  width: 6rem;
+} */
+.iconSearch {
+  width: 6rem;
+}
+.searchButton {
+  position: absolute;
+  background: none;
+  box-shadow: none;
+  border: none;
+  right: -4rem;
+  top: 50%;
+  bottom: 50%;
+  transform: translate(-50%, -50%);
+  width: 6rem;
+  height: 6rem;
+}
+/* card of all games styles */
+.allGames_container {
+  background-color: rgba(52, 52, 52, 0.28);
+  margin: auto;
+  width: 80%;
+}
+.listOfGames {
+  margin: auto;
+  width: 65%;
+}
+.card {
+  display: flex;
+  margin-block: 2em;
+  transition: 250ms ease;
+  height: 13rem;
+}
+.card_info {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.img_listCard {
+  border-radius: 15px 0 0 15px;
+  height: 13rem;
+}
+.card_description {
+  background: linear-gradient(70deg, #008eda42, #41cae245);
+  width: 100%;
+  border-radius: 0 15px 15px 0;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.title_listCard {
+  font-family: titlesFont;
+  font-size: 2rem;
+  color: white;
+}
+.date_plataform {
+  display: flex;
+  gap: 1em;
+}
+.card:hover {
+  transform: scale(1.05);
+}

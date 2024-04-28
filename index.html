@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Overview</title>
+    <link rel="shortcut icon" href="images/iconWebPage.svg" type="svg" />
+  </head>
+  <body>
+    <div class="background"></div>
+    <header>
+      <nav>
+        <img
+          src="./images/profile.svg"
+          alt="profile"
+          type="svg"
+          class="profilePicture"
+          id="profilePicture"
+        />
+        <ul class="menuHeader">
+          <li><a href="">Home</a></li>
+          <li><a href="">New realeses</a></li>
+          <li><a href="">All games</a></li>
+          <li><a href="">Categories</a></li>
+        </ul>
+      </nav>
+      <div class="rigthSection">
+        <div class="inputSearch">
+          <input
+            type="text"
+            placeholder="Search"
+            class="searchNav"
+            id="searchGames"
+            value="searchGames"
+          />
+          <button class="searchButton">
+            <img
+              src="./images/buttonCircle.svg"
+              alt=""
+              class="iconSearch"
+              type="svg"
+            />
+          </button>
+        </div>
+        <img src="./images/hamburguer.svg" alt="" type="svg" />
+      </div>
+    </header>
+    <section id="hero_section" class="hero_section"></section>
+    <section id="allGames_container" class="allGames_container">
+      <article id="listOfGames" class="listOfGames"></article>
+    </section>
+    <script type="module" src="./js/index.js"></script>
+  </body>
+</html>
