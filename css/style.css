@@ -278,13 +278,14 @@ span {
   height: 30rem;
   filter: blur(3px);
   -webkit-filter: blur(3px);
-  animation: heroAnimation2 500ms 3s forwards;
+  opacity: 1;
+  animation: heroAnimation2 500ms 3s forwards, heroAnimation1 500ms 6s forwards;
 }
 .pic3 {
   background-image: url("../images/picturesHero3.jpg");
   position: absolute;
   opacity: 0;
-  animation: heroAnimation3 500ms 3s forwards;
+  animation: heroAnimation3 500ms 3s forwards, heroAnimation4 500ms 6s forwards;
 }
 
 @keyframes heroAnimation1 {
@@ -326,6 +327,44 @@ span {
     -webkit-filter: blur(3px);
   }
 }
+
+@keyframes heroAnimation4 {
+  from {
+    opacity: 1;
+    margin-left: 10rem;
+    width: 20rem;
+    height: 30rem;
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    margin-left: 0;
+    width: 24rem;
+    height: 34rem;
+    filter: blur(0);
+    -webkit-filter: blur(0);
+  }
+}
+@keyframes heroAnimation5 {
+  from {
+    opacity: 0;
+    width: 24rem;
+    height: 34rem;
+    z-index: 10;
+    opacity: 1;
+    position: absolute;
+  }
+  to {
+    opacity: 1;
+    width: 20rem;
+    height: 30rem;
+    z-index: 1;
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+  }
+}
+
 /* card of all games styles */
 .allGames_container {
   background-color: rgba(52, 52, 52, 0.28);
@@ -372,4 +411,118 @@ span {
 }
 .card:hover {
   transform: scale(1.05);
+}
+
+@media only screen and (min-width: 100px) and (max-width: 1440px) {
+  .pic1 {
+    background-image: url("../images/picturesHero.jpg");
+    width: 20rem;
+    height: 30rem;
+    z-index: 10;
+    opacity: 1;
+    position: absolute;
+    animation: heroAnimation1 500ms ease 3s forwards,
+      heroAnimation5 500ms ease 6s forwards;
+  }
+  .pic2 {
+    position: absolute;
+    background-image: url("../images/picturesHero2.jpg");
+    margin-left: 10rem;
+    width: 16rem;
+    height: 26rem;
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+    animation: heroAnimation2 500ms ease 3s forwards,
+      heroAnimation1 500ms ease 6s forwards;
+    opacity: 1;
+  }
+  @keyframes heroAnimation2 {
+    from {
+      margin-left: 10rem;
+      width: 16rem;
+      height: 26rem;
+      filter: blur(3px);
+      -webkit-filter: blur(3px);
+    }
+    to {
+      margin-left: 0;
+      width: 20rem;
+      height: 30rem;
+      filter: blur(0);
+      -webkit-filter: blur(0);
+      z-index: 11;
+    }
+  }
+
+  @keyframes heroAnimation3 {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+      margin-left: 10rem;
+      width: 16rem;
+      height: 26rem;
+      filter: blur(3px);
+      -webkit-filter: blur(3px);
+    }
+  }
+  @keyframes heroAnimation4 {
+    from {
+      opacity: 1;
+      margin-left: 10rem;
+      width: 16rem;
+      height: 26rem;
+      filter: blur(3px);
+      -webkit-filter: blur(3px);
+    }
+    to {
+      opacity: 1;
+      margin-left: 0;
+      width: 20rem;
+      height: 30rem;
+      filter: blur(0);
+      -webkit-filter: blur(0);
+      z-index: 20;
+    }
+  }
+  @keyframes heroAnimation5 {
+    from {
+      opacity: 0;
+      width: 20rem;
+      height: 30rem;
+      z-index: 10;
+      opacity: 1;
+      position: absolute;
+    }
+    to {
+      opacity: 1;
+      width: 16rem;
+      height: 26rem;
+      z-index: 1;
+      filter: blur(3px);
+      -webkit-filter: blur(3px);
+      margin-left: 10rem;
+    }
+  }
+
+  .logoHero {
+    width: 450px;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  .title_listCard {
+    font-size: 1.5rem;
+  }
+  .date_plataform > p {
+    font-size: 1.5rem;
+  }
+  .developer {
+    font-size: 1.5rem;
+  }
+  .listOfGames {
+    margin: auto;
+    width: 75%;
+  }
 }

@@ -5,7 +5,7 @@ class Games {
   constructor() {
     this.list = [];
   }
-  
+
   render(container) {
     // if (this.lista.length === 0) {
     //   imprimir(container, "<h3 class='empty'>There are no games</h3>");
@@ -34,8 +34,11 @@ class Games {
               game.developer
             )
         );
+        function obtenerID(id) {
+          alert("se ha presionado la carta con el id: " + id);
+        }
       });
-    
+
     // const filterOption = document.getElementById("search");
     // const handleFilterSearch = () => {
     //   const searchFilter = filterOption.value;
@@ -43,8 +46,5 @@ class Games {
     // }
   }
 }
-
-
-
 
 export default Games;
