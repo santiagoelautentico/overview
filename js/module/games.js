@@ -5,6 +5,7 @@ class Games {
   constructor() {
     this.list = [];
   }
+  
   render(container) {
     // if (this.lista.length === 0) {
     //   imprimir(container, "<h3 class='empty'>There are no games</h3>");
@@ -34,7 +35,16 @@ class Games {
             )
         );
       });
+    
+    // const filterOption = document.getElementById("search");
+    // const handleFilterSearch = () => {
+    //   const searchFilter = filterOption.value;
+    //   const filteredGenders = this.list.filter((game) => this
+    // }
   }
 }
+
+
+
 
 export default Games;

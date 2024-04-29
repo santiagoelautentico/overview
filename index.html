@@ -22,7 +22,21 @@
           <li><a href="">Home</a></li>
           <li><a href="">New realeses</a></li>
           <li><a href="">All games</a></li>
-          <li><a href="">Categories</a></li>
+          <li>
+            <select name="" id="">
+              <option value="">Categories</option>
+              <option value="shooter" id="search" onclick="genderGames()">
+                Shooter
+              </option>
+              <option value="strategy" id="">Strategy</option>
+              <option value="moba" id="">Moba</option>
+              <option value="racing" id="">racing</option>
+              <option value="sports" id="">Sports</option>
+              <option value="fantasy" id="">fantasy</option>
+              <option value="mmorpg" id="">MMORPG</option>
+              <option value="card" id="">Card</option>
+            </select>
+          </li>
         </ul>
       </nav>
       <div class="rigthSection">
@@ -46,7 +60,39 @@
         <img src="./images/hamburguer.svg" alt="" type="svg" />
       </div>
     </header>
-    <section id="hero_section" class="hero_section"></section>
+    <section id="hero_container" class="hero_section">
+      <div class="pictureHero_section">
+        <div class="pictureHero pic1"></div>
+        <div class="pictureHero pic2"></div>
+        <div class="pictureHero pic3"></div>
+      </div>
+      <div class="contentHero_container">
+        <img
+          src="./images/heroLogo.svg"
+          alt="Overview Logo"
+          type="svg"
+          class="logoHero"
+        />
+        <h1>Level Up Your Fun: Discover <span>Free Games</span> Platforms!</h1>
+        <p>What are you waiting? for, start searching</p>
+        <div class="buttonsHero_container">
+          <button class="buttonHero" id="createAcount">
+            <img
+              src="./images/createButton.svg"
+              type="svg"
+              alt=""
+            />
+          </button>
+          <button class="buttonHero" id="login">
+            <img
+              src="./images/loginButton.svg"
+              alt="login"
+              type="svg"
+            />
+          </button>
+        </div>
+      </div>
+    </section>
     <section id="allGames_container" class="allGames_container">
       <article id="listOfGames" class="listOfGames"></article>
     </section>

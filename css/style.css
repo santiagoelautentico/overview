@@ -131,6 +131,10 @@ header {
   background: linear-gradient(70deg, #263159, #008eda00);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
   justify-content: space-between;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
 }
 
 nav {
@@ -191,6 +195,136 @@ input:checked {
   transform: translate(-50%, -50%);
   width: 6rem;
   height: 6rem;
+}
+select {
+  border: none;
+  background: none;
+  color: white;
+  font-family: textfont;
+  font-size: 1.5rem;
+}
+option {
+  font-size: 1.5rem;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+/* HERO CSS */
+
+.hero_section {
+  height: 100vh;
+  display: flex;
+  margin: auto;
+  width: 80%;
+  align-items: center;
+  justify-content: space-between;
+}
+.pictureHero_section {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+}
+.contentHero_container {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+.logoHero {
+  width: 600px;
+}
+h1 {
+  font-family: titlesFont;
+  font-size: 3.5rem;
+  color: white;
+}
+span {
+  color: var(--secondaryColor);
+}
+.buttonsHero_container {
+  display: flex;
+  gap: 1.5em;
+}
+.buttonHero {
+  background: none;
+  border: none;
+  width: fit-content;
+}
+.imgButtonHero {
+  width: 6rem;
+}
+.pictureHero_section {
+  display: flex;
+  align-items: center;
+}
+.pictureHero {
+  background-size: cover;
+  border-radius: 25px;
+}
+.pic1 {
+  background-image: url("../images/picturesHero.jpg");
+  width: 24rem;
+  height: 34rem;
+  z-index: 10;
+  opacity: 1;
+  position: absolute;
+  animation: heroAnimation1 500ms 3s forwards;
+}
+.pic2 {
+  position: absolute;
+  background-image: url("../images/picturesHero2.jpg");
+  margin-left: 10rem;
+  width: 20rem;
+  height: 30rem;
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+  animation: heroAnimation2 500ms 3s forwards;
+}
+.pic3 {
+  background-image: url("../images/picturesHero3.jpg");
+  position: absolute;
+  opacity: 0;
+  animation: heroAnimation3 500ms 3s forwards;
+}
+
+@keyframes heroAnimation1 {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+@keyframes heroAnimation2 {
+  from {
+    margin-left: 10rem;
+    width: 20rem;
+    height: 30rem;
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+  }
+  to {
+    margin-left: 0;
+    width: 24rem;
+    height: 34rem;
+    filter: blur(0);
+    -webkit-filter: blur(0);
+    z-index: 11;
+  }
+}
+@keyframes heroAnimation3 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    margin-left: 10rem;
+    width: 20rem;
+    height: 30rem;
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+  }
 }
 /* card of all games styles */
 .allGames_container {
