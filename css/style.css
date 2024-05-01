@@ -268,7 +268,7 @@ span {
   z-index: 10;
   opacity: 1;
   position: absolute;
-  animation: heroAnimation1 500ms 3s forwards;
+  animation: heroAnimation1 500ms 3s forwards, heroAnimation5 500ms 6s forwards;
 }
 .pic2 {
   position: absolute;
@@ -344,6 +344,7 @@ span {
     height: 34rem;
     filter: blur(0);
     -webkit-filter: blur(0);
+    z-index: 100;
   }
 }
 @keyframes heroAnimation5 {
@@ -362,6 +363,8 @@ span {
     z-index: 1;
     filter: blur(3px);
     -webkit-filter: blur(3px);
+    z-index: 1;
+    margin-left: 10rem;
   }
 }
 

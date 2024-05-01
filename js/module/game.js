@@ -11,7 +11,7 @@ export class ListOfGames {
 
   renderMiniCard() {
     const miniCard = `
-            <article class="card" id="${this.id}" onClick="obtenerID(${this.id})">
+            <div class="card" data-id="${this.id}">
                 <img src="${this.cover_picture}" alt="${this.title}" class="img_listCard">
                 <div class="card_description">
                     <h2 class="title_listCard">${this.title}</h2>
@@ -24,13 +24,13 @@ export class ListOfGames {
                     </div>
                     <h3 class="gender ${this.gender}">${this.gender}</h3>
                 </div>
-            </article>
+            </div>
         `;
     return miniCard;
   }
 
   renderGamePage() {
-    const gamePage = `<h2>${this.title}</h2>`;
+    const gamePage = `<h2 id="${this.id}">${this.title}</h2>`;
     return gamePage;
   }
 }

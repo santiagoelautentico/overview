@@ -10,5 +10,6 @@ export const Options = {
   },
 };
 export const API_URL = 'https://www.freetogame.com/api/games';
+export const API_URL_ID = 'https://www.freetogame.com/api/game';
 export const API_GENDER_URL = 'https://www.freetogame.com/api/games?category=';
 
