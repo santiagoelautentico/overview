@@ -5,7 +5,6 @@ class Games {
   constructor() {
     this.list = [];
   }
-
   attachEventListeners(container) {
     const gameDetails = document.querySelectorAll(".card");
     gameDetails.forEach((div, index) => {
@@ -19,14 +18,14 @@ class Games {
   //   const gameDetails = document.querySelectorAll(".card");
   //   gameDetails.forEach((div, index) => {
   //     div.addEventListener("mouseover", () => {
-  //       this.getGameDetails(div.dataset.id, container);
+  //       this.getGameDetailsPictures(div.dataset.id, container);
   //       console.log(div.dataset.id);
   //     });
   //   });
   // }
 
   render(container) {
-    const contentHtml = this.list
+    const contentHtml = this.list.slice(0, 6)
       .map((games) => games.renderMiniCard())
       .join("");
     imprimir(container, contentHtml);
@@ -42,20 +41,22 @@ class Games {
       response.genre,
       response.release_date,
       response.platform,
-      response.developer
+      response.developer,
+      response.thumbnail,
+      response.screenshots
     );
     imprimir(container, game.renderGamePage());
     this.attachEventListeners(container);
   }
-  // renderGameSreenshoots(container, response) {
-  //   // response.renderGamePage()
-  //   const game = new Game(
-  //     response.id,
-  //     response.cover_picture,
-  //   );
-  //   imprimir(container, game.renderScreenshoots());
-  //   this.attachEventListeners(container);
-  // }
+  renderGameSreenshoots(container, response) {
+    // response.renderGamePage()
+    const game = new Game(
+      response.id,
+      response.cover_picture,
+    );
+    imprimir(container, game.renderScreenshoots());
+    this.attachEventListeners(container);
+  }
   chargeGames() {
     return fetch(API_URL, Options)
       .then((res) => res.json())
@@ -70,7 +71,7 @@ class Games {
               game.genre,
               game.release_date,
               game.platform,
-              game.developer
+              game.developer,
             )
         );
       });
@@ -83,14 +84,15 @@ class Games {
         this.renderGameDetails("listOfGames", response);
       });
   }
-  // getScreenShoots(id) {
+  // getGameDetailsPictures(id) {
   //   return fetch(`${API_URL_ID}?id=${id}`, Options)
   //     .then((res) => res.json())
   //     .then((response) => {
-  //       console.log("prueba3", response);
-  //       this.renderGameSreenshoots("screenshots", response);
+  //       console.log("prueba2", response);
+  //       this.renderGameDetails("pictures_hover", response);
   //     });
   // }
+
 }
 
 export default Games;

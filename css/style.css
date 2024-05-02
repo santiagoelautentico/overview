@@ -29,7 +29,20 @@
   --action: #ff0000;
   --rpg: #ff8c00;
 }
-
+.seeMore{
+  width: 65%;
+  margin: auto;
+  font-family: textFont;
+  font-size: 1.2rem;
+  color: white;
+  margin-top: 1em;
+  transition: 250ms;
+}
+.seeMore:hover{
+  cursor: pointer;
+  color: var(--secondaryColor);
+  font-size: 1.5rem;
+}
 textarea:focus,
 input:focus {
   outline: none;
@@ -62,7 +75,11 @@ p {
   font-family: textFont;
   font-size: 1.5rem;
 }
-
+.title_section{
+  font-family: titlesFont;
+  font-size: 2.5rem;
+  color: white;  
+}
 .gender {
   font-family: titlesFont;
   font-size: 0.8rem;
@@ -131,10 +148,10 @@ header {
   background: linear-gradient(70deg, #263159, #008eda00);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
   justify-content: space-between;
-  position: absolute;
   top: 0;
   width: 100%;
   z-index: -1;
+  position: absolute;
 }
 
 nav {
@@ -209,6 +226,23 @@ option {
   display: flex;
   align-items: center;
 }
+
+.d-none{
+  display: none !important;
+  opacity: 0;
+}
+
+/*----------------------------------GAME DETAILS---------------------------------*/
+
+/* .gameDetails_container {
+  background-color: red;
+  position: absolute;
+  top: 100vh;
+  width: 100%;
+  height: 100vh;
+  z-index: 10000;
+} */
+
 /* HERO CSS */
 
 .hero_section {
@@ -373,6 +407,17 @@ span {
   margin: auto;
   width: 80%;
 }
+
+.headerAllGames{
+  display: flex;
+  width: 65%;
+  margin: auto;
+  align-items: center;
+  justify-content: space-between;
+}
+.inputAllGames{
+  width: 60%;
+}
 .listOfGames {
   margin: auto;
   width: 65%;
@@ -414,6 +459,7 @@ span {
 }
 .card:hover {
   transform: scale(1.05);
+  cursor: pointer;
 }
 .plataform {
   font-family: textFont;

@@ -60,7 +60,7 @@
         <img src="./images/hamburguer.svg" alt="" type="svg" />
       </div>
     </header>
-    <section id="hero_container" class="hero_section">
+    <section id="hero_container" class="hero_section"> 
       <div class="pictureHero_section">
         <div class="pictureHero pic1"></div>
         <div class="pictureHero pic2"></div>
@@ -93,12 +93,33 @@
         </div>
       </div>
     </section>
-    <section id="allGames_container" class="allGames_container">
-      <article id="listOfGames" class="listOfGames">
-        <div class="screenshots" id="screenshots"></div>
-      </article>
-      <article id="listOfGames2" class="listOfGames"></article>
+    <section id="allGames_container" class="allGames_container">\
+      <div class="headerAllGames" id="headerAllGames">
+        <h2 class="title_section">All Games</h2>
+        <div class="inputSearch inputAllGames">
+          <input
+            type="text"
+            placeholder="Search"
+            class="searchNav"
+            id="searchGames"
+          />
+          <button class="searchButton">
+            <img
+              src="./images/buttonCircle.svg"
+              alt=""
+              class="iconSearch"
+              type="svg"
+            />
+          </button>
+        </div>
+      </div>
+      <div class="pictures_hover" id="pictures_hover"></div>
+      <article id="listOfGames" class="listOfGames"></article>
+      <div class="seeMore">
+        <h3>See more</h3>
+      </div>
     </section>
+    <section id="listOfGames2" class="listOfGames"></article>
     <script type="module" src="./js/index.js"></script>
   </body>
 </html>
