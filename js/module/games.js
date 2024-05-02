@@ -7,14 +7,21 @@ class Games {
   }
   detailsGame(id, container) {
     this.list = this.list.filter((games) => games.id !== id);
-    this.idGames(id);
+    fetch(`${API_URL_ID}?id=${id}`, Options)
+      .then((res) => res.json())
+      .then((data) => {
+        this.list.push(new ListOfGames(data.id, data.thumbnail, data.title, data.genre, data.release_date, data.platform, data.developer));
+        this.render2(container);
+        console.log("prueba", this.list);
+      })
   }
+
 
   attachEventListeners(container) {
     const gameDetails = document.querySelectorAll(".card");
     gameDetails.forEach((div, index) => {
       div.addEventListener("click", () => {
-        this.detailsGame(div.dataset.id, container);
+        this.idGames(div.dataset.id, container);
         console.log(div.dataset.id);
       });
     });
@@ -32,7 +39,7 @@ class Games {
     this.attachEventListeners(container);
   }
 
-render2(container) {
+  render2(container) {
     const contentHtml = this.list
       .map((games) => games.renderGamePage())
       .join("");
@@ -40,15 +47,15 @@ render2(container) {
     this.attachEventListeners(container);
   }
 
-  attachEventListeners(container) {
-    const gameDetails = document.querySelectorAll(".card");
-    gameDetails.forEach((div, index) => {
-      div.addEventListener("click", () => {
-        this.detailsGame(div.dataset.id, container);
-        console.log(div.dataset.id);
-      });
-    });
-  }
+  // attachEventListeners(container) {
+  //   const gameDetails = document.querySelectorAll(".card");
+  //   gameDetails.forEach((div, index) => {
+  //     div.addEventListener("click", () => {
+  //       this.detailsGame(div.dataset.id, container);
+  //       console.log(div.dataset.id);
+  //     });
+  //   });
+  // }
 
   // pepeTry(id) {
   //   return fetch(`${API_URL_ID}?id=${id}`, Options)
@@ -73,7 +80,7 @@ render2(container) {
     return fetch(API_URL, Options)
       .then((res) => res.json())
       .then((response) => {
-        console.log(response);
+        console.log("prueba", response);
         this.list = response.map(
           (game) =>
             new ListOfGames(
@@ -92,10 +99,11 @@ render2(container) {
     return fetch(`${API_URL_ID}?id=${id}`, Options)
       .then((res) => res.json())
       .then((response) => {
-        console.log(response);
-        `<h2>${response.title}</h2>`;
+        console.log("prueba2", response);
+        render2("listOfGames2", response);
       });
   }
+
 }
 
 export default Games;

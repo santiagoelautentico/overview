@@ -7,9 +7,9 @@ const games = new Games();
 // export const click = (elemento, callback) => {
 //   document.querySelector(`#${elemento}`).addEventListener("click", callback);
 // };
-games.idGames().then(() => {
-  games.render2("listOfGames");
-});
+// games.detailsGame() {
+//   games.render2("listOfGames2");
+// }
 games.chargeGames().then(() => {
   games.render("listOfGames");
 });
