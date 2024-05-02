@@ -65,8 +65,8 @@ p {
 
 .gender {
   font-family: titlesFont;
-  max-width: 11rem;
-  font-size: 1.3rem;
+  font-size: 0.8rem;
+  width: 6.8rem;
   padding: 0.5rem;
   border-radius: 5px;
   color: white;
@@ -370,19 +370,20 @@ span {
 
 /* card of all games styles */
 .allGames_container {
-  background-color: rgba(52, 52, 52, 0.28);
   margin: auto;
   width: 80%;
 }
 .listOfGames {
   margin: auto;
   width: 65%;
+  padding-top: 2em;
 }
 .card {
   display: flex;
-  margin-block: 2em;
+  margin-block: 0.75em;
   transition: 250ms ease;
-  height: 13rem;
+  height: 8rem;
+  border-radius: 5px;
 }
 .card_info {
   display: flex;
@@ -390,22 +391,21 @@ span {
   gap: 1em;
 }
 .img_listCard {
-  border-radius: 15px 0 0 15px;
-  height: 13rem;
+  height: 8rem;
 }
 .card_description {
   background: linear-gradient(70deg, #008eda42, #41cae245);
-  width: 100%;
-  border-radius: 0 15px 15px 0;
+  width: 50%;
   padding: 1em;
   display: flex;
   flex-direction: column;
   gap: 1em;
+  box-shadow: inset 4px -4px 4px rgba(0, 0, 0, 0.283), inset -4px 4px 4px rgba(0, 215, 255, 0.15), 4px 4px 4px rgba(0, 0, 0, 0.283), 4px 4px 4px rgba(0, 0, 0, 0.083)
 }
 
 .title_listCard {
-  font-family: titlesFont;
-  font-size: 2rem;
+  font-family: textFont;
+  font-size: 1.5rem;
   color: white;
 }
 .date_plataform {
@@ -415,8 +415,20 @@ span {
 .card:hover {
   transform: scale(1.05);
 }
+.plataform {
+  font-family: textFont;
+  color: white;
+}
 
 @media only screen and (min-width: 100px) and (max-width: 1440px) {
+  .allGames_container {
+    margin: auto;
+    width: 90%;
+  }
+  .listOfGames {
+    margin: auto;
+    width: 65%;
+  }
   .pic1 {
     background-image: url("../images/picturesHero.jpg");
     width: 20rem;
@@ -523,9 +535,5 @@ span {
   }
   .developer {
     font-size: 1.5rem;
-  }
-  .listOfGames {
-    margin: auto;
-    width: 75%;
   }
 }
