@@ -11,6 +11,7 @@ export class Game {
 
   renderMiniCard() {
     const miniCard = `
+        <a>
             <div class="card" data-id="${this.id}">
                 <img src="${this.thumbnail}" alt="${this.title}" class="img_listCard">
                 <div class="card_description">
@@ -19,6 +20,7 @@ export class Game {
                     <h3 class="gender ${this.gender}">${this.gender}</h3>
                 </div>
             </div>
+        </a>
                 `;
     return miniCard;
   }

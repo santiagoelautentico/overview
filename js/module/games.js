@@ -6,12 +6,7 @@ import {
   API_URL_ID,
   API_GENDER_URL,
 } from "../utils.js";
-import { Game } from "../module/game.js";
-
-// const queryString = window.location.search;
-// const urlParams = new URLSearchParams(queryString);
-// const product = urlParams.get('id');
-// console.log("pepe", product);
+import { Game } from "./gamesRendering.js";
 
 class Games {
   constructor() {
@@ -21,8 +16,9 @@ class Games {
     const gameDetails = document.querySelectorAll(".card");
     gameDetails.forEach((div, index) => {
       div.addEventListener("click", () => {
+        window.location.href = `game.html?id=${div.dataset.id}`;
         this.getGameDetails(div.dataset.id, container);
-        console.log(div.dataset.id);
+        console.log("id", div.dataset.id);
       });
     });
     const gameCategories = document.querySelectorAll(".categories");
@@ -61,6 +57,7 @@ class Games {
   }
 
   renderGameDetails(container, response) {
+    console.log("rendergames", response);
     // response.renderGamePage()
     const game = new Game(
       response.id,
@@ -114,13 +111,7 @@ class Games {
     return fetch(`${API_URL_ID}?id=${id}`, Options)
       .then((res) => res.json())
       .then((response) => {
-        const queryString = window.location.href;
-        const urlParams = new URLSearchParams(queryString);
-        console.log(queryString);
-        const elid = urlParams.get(id);
-        console.log("pepe", elid);
-        console.log("prueba2", response);
-        this.renderGameDetails("listOfGames", response);
+        this.renderGameDetails("gameDetails", response);
       });
   }
   categoriesGamesFetch(id) {
