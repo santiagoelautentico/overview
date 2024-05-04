@@ -4,3 +4,4 @@ const games = new Games();
 games.chargeGames().then(() => {
   games.render("listOfGames");
 });
+

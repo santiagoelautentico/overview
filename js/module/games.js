@@ -1,4 +1,4 @@
-let cont = 6
+let cont = 6;
 import {
   imprimir,
   API_URL,
@@ -7,6 +7,11 @@ import {
   API_GENDER_URL,
 } from "../utils.js";
 import { Game } from "../module/game.js";
+
+// const queryString = window.location.search;
+// const urlParams = new URLSearchParams(queryString);
+// const product = urlParams.get('id');
+// console.log("pepe", product);
 
 class Games {
   constructor() {
@@ -23,7 +28,7 @@ class Games {
     const gameCategories = document.querySelectorAll(".categories");
     gameCategories.forEach((li, index) => {
       li.addEventListener("click", () => {
-        this.categorieesGamesFetch(li.dataset.id);
+        this.categoriesGamesFetch(li.dataset.id);
         console.log(li.dataset.id);
       });
     });
@@ -59,15 +64,14 @@ class Games {
     // response.renderGamePage()
     const game = new Game(
       response.id,
-      response.cover_picture,
+      response.thumbnail,
       response.title,
       response.genre,
       response.release_date,
       response.platform,
-      response.developer,
-      response.thumbnail,
-      response.screenshots
+      response.developer
     );
+
     imprimir(container, game.renderGamePage());
     this.attachEventListeners(container);
   }
@@ -110,11 +114,16 @@ class Games {
     return fetch(`${API_URL_ID}?id=${id}`, Options)
       .then((res) => res.json())
       .then((response) => {
+        const queryString = window.location.href;
+        const urlParams = new URLSearchParams(queryString);
+        console.log(queryString);
+        const elid = urlParams.get(id);
+        console.log("pepe", elid);
         console.log("prueba2", response);
         this.renderGameDetails("listOfGames", response);
       });
   }
-  categorieesGamesFetch(id) {
+  categoriesGamesFetch(id) {
     return fetch(`${API_GENDER_URL}${id}`)
       .then((res) => res.json())
       .then((response) => {
@@ -133,14 +142,7 @@ class Games {
         this.render("listOfGames");
       });
   }
-  // getGameDetailsPictures(id) {
-  //   return fetch(`${API_URL_ID}?id=${id}`, Options)
-  //     .then((res) => res.json())
-  //     .then((response) => {
-  //       console.log("prueba2", response);
-  //       this.renderGameDetails("pictures_hover", response);
-  //     });
-  // }
+
 }
 
 export default Games;

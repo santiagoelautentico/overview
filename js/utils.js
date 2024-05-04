@@ -12,4 +12,5 @@ export const API_URL = 'https://www.freetogame.com/api/games';
 export const API_URL_ID = 'https://www.freetogame.com/api/game';
 export const API_GENDER_URL = 'https://www.freetogame.com/api/games?category=';
 
+
 // export const redirectGameDetail = window.location.href = 'game.html'

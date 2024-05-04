@@ -18,7 +18,7 @@ export class Game {
                     <div class="${this.plataform} plataform">${this.plataform}</div>
                     <h3 class="gender ${this.gender}">${this.gender}</h3>
                 </div>
-                </div>
+            </div>
                 `;
     return miniCard;
   }
@@ -30,8 +30,4 @@ export class Game {
     `;
     return gamePage;
   }
-    renderScreenshoots() {
-      const screenPage = `<h2>ScreenShoots</h2>`;
-      return screenPage;
-    }
 }
