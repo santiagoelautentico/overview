@@ -29,7 +29,7 @@
   --action: #ff0000;
   --rpg: #ff8c00;
 }
-.seeMore{
+.seeMore {
   width: 65%;
   margin: auto;
   font-family: textFont;
@@ -38,7 +38,7 @@
   margin-top: 1em;
   transition: 250ms;
 }
-.seeMore:hover{
+.seeMore:hover {
   cursor: pointer;
   color: var(--secondaryColor);
   font-size: 1.5rem;
@@ -75,10 +75,10 @@ p {
   font-family: textFont;
   font-size: 1.5rem;
 }
-.title_section{
+.title_section {
   font-family: titlesFont;
   font-size: 2.5rem;
-  color: white;  
+  color: white;
 }
 .gender {
   font-family: titlesFont;
@@ -227,7 +227,7 @@ option {
   align-items: center;
 }
 
-.d-none{
+.d-none {
   display: none !important;
   opacity: 0;
 }
@@ -406,16 +406,17 @@ span {
 .allGames_container {
   margin: auto;
   width: 80%;
+  position: relative;
 }
 
-.headerAllGames{
+.headerAllGames {
   display: flex;
   width: 65%;
   margin: auto;
   align-items: center;
   justify-content: space-between;
 }
-.inputAllGames{
+.inputAllGames {
   width: 60%;
 }
 .listOfGames {
@@ -445,7 +446,9 @@ span {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  box-shadow: inset 4px -4px 4px rgba(0, 0, 0, 0.283), inset -4px 4px 4px rgba(0, 215, 255, 0.15), 4px 4px 4px rgba(0, 0, 0, 0.283), 4px 4px 4px rgba(0, 0, 0, 0.083)
+  box-shadow: inset 4px -4px 4px rgba(0, 0, 0, 0.283),
+    inset -4px 4px 4px rgba(0, 215, 255, 0.15), 4px 4px 4px rgba(0, 0, 0, 0.283),
+    4px 4px 4px rgba(0, 0, 0, 0.083);
 }
 
 .title_listCard {
@@ -464,6 +467,33 @@ span {
 .plataform {
   font-family: textFont;
   color: white;
+}
+
+.categories_container {
+  position: absolute;
+  color: white;
+  top: 110vh;
+  background-color: #383b52;
+  padding-block: 2em;
+  padding-inline: 3em;
+}
+.categories_list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.categories_title {
+  font-family: "titlesFont";
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ffffff5d;
+}
+.categories {
+  font-size: 1.5rem;
+  font-family: textFont;
+}
+.categories:hover {
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 100px) and (max-width: 1440px) {

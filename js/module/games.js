@@ -1,4 +1,11 @@
-import { imprimir, API_URL, Options, API_URL_ID } from "../utils.js";
+let cont = 6
+import {
+  imprimir,
+  API_URL,
+  Options,
+  API_URL_ID,
+  API_GENDER_URL,
+} from "../utils.js";
 import { Game } from "../module/game.js";
 
 class Games {
@@ -13,6 +20,21 @@ class Games {
         console.log(div.dataset.id);
       });
     });
+    const gameCategories = document.querySelectorAll(".categories");
+    gameCategories.forEach((li, index) => {
+      li.addEventListener("click", () => {
+        this.categorieesGamesFetch(li.dataset.id);
+        console.log(li.dataset.id);
+      });
+    });
+    const seeMore = document.querySelectorAll(".seeMore");
+    seeMore.forEach((div, index) => {
+      div.addEventListener("click", () => {
+        cont = cont + 10;
+        this.render(container);
+        console.log(cont);
+      });
+    });
   }
   // attachEventListeners(container) {
   //   const gameDetails = document.querySelectorAll(".card");
@@ -25,7 +47,8 @@ class Games {
   // }
 
   render(container) {
-    const contentHtml = this.list.slice(0, 6)
+    const contentHtml = this.list
+      .slice(0, cont)
       .map((games) => games.renderMiniCard())
       .join("");
     imprimir(container, contentHtml);
@@ -48,13 +71,20 @@ class Games {
     imprimir(container, game.renderGamePage());
     this.attachEventListeners(container);
   }
-  renderGameSreenshoots(container, response) {
-    // response.renderGamePage()
-    const game = new Game(
-      response.id,
-      response.cover_picture,
-    );
-    imprimir(container, game.renderScreenshoots());
+  renderGameCategories(container, response) {
+    for (let i = 0; i < response.length; i++) {
+      const game = new Game(
+        response[i].id,
+        response[i].thumbnail,
+        response[i].title,
+        response[i].genre,
+        response[i].release_date,
+        response[i].platform,
+        response[i].developer
+      );
+      console.log(response[i]);
+      imprimir(container, game.renderMiniCard());
+    }
     this.attachEventListeners(container);
   }
   chargeGames() {
@@ -71,7 +101,7 @@ class Games {
               game.genre,
               game.release_date,
               game.platform,
-              game.developer,
+              game.developer
             )
         );
       });
@@ -84,6 +114,25 @@ class Games {
         this.renderGameDetails("listOfGames", response);
       });
   }
+  categorieesGamesFetch(id) {
+    return fetch(`${API_GENDER_URL}${id}`)
+      .then((res) => res.json())
+      .then((response) => {
+        this.list = response.map(
+          (game) =>
+            new Game(
+              game.id,
+              game.thumbnail,
+              game.title,
+              game.genre,
+              game.release_date,
+              game.platform,
+              game.developer
+            )
+        );
+        this.render("listOfGames");
+      });
+  }
   // getGameDetailsPictures(id) {
   //   return fetch(`${API_URL_ID}?id=${id}`, Options)
   //     .then((res) => res.json())
@@ -92,7 +141,6 @@ class Games {
   //       this.renderGameDetails("pictures_hover", response);
   //     });
   // }
-
 }
 
 export default Games;

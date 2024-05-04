@@ -1,21 +1,18 @@
 export class Game {
-  constructor(id, cover_picture,title, gender, date, platform, developer, thumbnail, image) {
+  constructor(id,thumbnail,title, gender, date, platform, developer) {
     this.id = id;
-    this.cover_picture = cover_picture;
     this.thumbnail = thumbnail;
     this.title = title;
     this.gender = gender;
     this.date = date;
     this.plataform = platform;
     this.developer = developer;
-    this.screenshots = [];
-    this.image = image
   }
 
   renderMiniCard() {
     const miniCard = `
             <div class="card" data-id="${this.id}">
-                <img src="${this.cover_picture}" alt="${this.title}" class="img_listCard">
+                <img src="${this.thumbnail}" alt="${this.title}" class="img_listCard">
                 <div class="card_description">
                     <h2 class="title_listCard">${this.title}</h2>
                     <div class="${this.plataform} plataform">${this.plataform}</div>
@@ -28,7 +25,7 @@ export class Game {
 
   renderGamePage() {
     const gamePage = `
-     <img src="${this.screenshots}" alt="${this.title}" class="img_gamePage">
+     <img src="${this.thumbnail}" alt="${this.title}" class="img_gamePage">
      <h2 class="title_gamePage">${this.title}</h2>
     `;
     return gamePage;
