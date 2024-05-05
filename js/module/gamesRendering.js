@@ -29,7 +29,7 @@ export class Game {
     const miniCard = `
         <a>
             <div class="card" data-id="${this.id}">
-                <img src="${this.thumbnail}" alt="${this.title}" class="img_listCard">
+                <img src="${this.thumbnail}" alt="${this.title}" class="img_listCard viewTransition">
                 <div class="card_description">
                     <h2 class="title_listCard">${this.title}</h2>
                     <div class="${this.plataform} plataform">${this.platform}</div>
