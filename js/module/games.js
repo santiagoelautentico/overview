@@ -61,12 +61,16 @@ class Games {
     // response.renderGamePage()
     const game = new Game(
       response.id,
-      response.thumbnail,
       response.title,
+      response.thumbnail,
+      response.description,
       response.genre,
-      response.release_date,
       response.platform,
-      response.developer
+      response.release_date,
+      response.developer,
+      response.publisher,
+      response.minimum_system_requirements,
+      response.screenshots,
     );
 
     imprimir(container, game.renderGamePage());
@@ -78,9 +82,10 @@ class Games {
         response[i].id,
         response[i].thumbnail,
         response[i].title,
+        response[i].description,
         response[i].genre,
-        response[i].release_date,
         response[i].platform,
+        response[i].release_date,
         response[i].developer
       );
       console.log(response[i]);
@@ -97,11 +102,11 @@ class Games {
           (game) =>
             new Game(
               game.id,
-              game.thumbnail,
               game.title,
+              game.thumbnail,
+              game.platform,
               game.genre,
               game.release_date,
-              game.platform,
               game.developer
             )
         );
@@ -122,10 +127,10 @@ class Games {
           (game) =>
             new Game(
               game.id,
-              game.thumbnail,
               game.title,
-              game.genre,
+              game.thumbnail,
               game.release_date,
+              game.genre,
               game.platform,
               game.developer
             )

@@ -37,6 +37,7 @@
   color: white;
   margin-top: 1em;
   transition: 250ms;
+  font-weight: 300;
 }
 .seeMore:hover {
   cursor: pointer;
@@ -71,11 +72,12 @@ a {
 }
 
 p {
-  color: white;
+  color: #e0e0e0;
   font-family: textFont;
   font-size: 1.5rem;
+  font-weight: 200;
 }
-.title_section {
+.title {
   font-family: titlesFont;
   font-size: 2.5rem;
   color: white;
@@ -144,13 +146,14 @@ header {
   align-items: center;
   font-family: textfont;
   gap: 2rem;
-  padding: 3em;
+  padding: 0 5rem;
+  height: 7rem;
+
   background: linear-gradient(70deg, #263159, #008eda00);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
   justify-content: space-between;
   top: 0;
   width: 100%;
-  z-index: -1;
   position: absolute;
 }
 
@@ -162,8 +165,7 @@ nav {
 .menuHeader {
   display: flex;
   gap: 1.5em;
-  font-size: 1.75rem;
-  font-weight: 200;
+  font-size: 1.2rem;
 }
 .profilePicture {
   width: 3.5rem;
@@ -182,14 +184,15 @@ input:checked {
   border: none;
 }
 .searchNav {
-  padding: 1.25rem;
+  padding: 1rem;
   width: 100%;
-  font-size: 1.25rem;
-  border-radius: 40px;
+  font-size: 1.2rem;
+  border-radius: 50px;
   font-family: textfont;
   box-shadow: rgba(0, 0, 0, 0.6) 0px 25px 20px -12px;
   border: none;
 }
+
 /* .searchButtonNav {
   position: absolute;
   right: -6rem;
@@ -199,7 +202,7 @@ input:checked {
   width: 6rem;
 } */
 .iconSearch {
-  width: 6rem;
+  width: 5rem;
 }
 .searchButton {
   position: absolute;
@@ -218,7 +221,7 @@ select {
   background: none;
   color: white;
   font-family: textfont;
-  font-size: 1.5rem;
+  font-size: inherit;
 }
 option {
   font-size: 1.5rem;
@@ -455,6 +458,7 @@ span {
   font-family: textFont;
   font-size: 1.5rem;
   color: white;
+  font-weight: 300;
 }
 .date_plataform {
   display: flex;
@@ -467,6 +471,7 @@ span {
 .plataform {
   font-family: textFont;
   color: white;
+  font-weight: 300;
 }
 
 .categories_container {
@@ -491,6 +496,7 @@ span {
 .categories {
   font-size: 1.5rem;
   font-family: textFont;
+  font-weight: 300;
 }
 .categories:hover {
   cursor: pointer;
@@ -612,4 +618,100 @@ span {
   .developer {
     font-size: 1.5rem;
   }
+}
+
+/* ----------------------------------GAME DETAILS ------------------------------------------------ */
+
+.game_container {
+  display: flex;
+  flex-direction: column;
+}
+.pictures_container {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  height: 55vh;
+  margin-top: 7rem;
+}
+.picture_gameDetail {
+  width: 60%;
+  border-radius: 15px 0 0 15px;
+}
+.centerPictures {
+  width: 65%;
+  margin: auto;
+  display: flex;
+  box-shadow: 10px 10px 30px #00000059;
+}
+.background-image_gameDetail {
+  width: 100%;
+  position: absolute;
+  top: 7rem;
+  left: 0;
+  height: 55vh;
+  object-fit: cover;
+  object-position: top;
+  z-index: -1;
+  filter: brightness(0.7);
+  -webkit-mask-image: linear-gradient(black, rgba(0, 0, 0, 0));
+}
+.screenPictures_container {
+  width: 60rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  background: linear-gradient(70deg, rgba(255, 255, 255, 0.451), #87878700);
+  backdrop-filter: blur(10px);
+  border-radius: 0 15px 15px 0;
+}
+.screenPictures {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+  border-radius: 15px;
+}
+.game_description {
+  width: 65%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+}
+.subtitle {
+  font-size: 1.5rem;
+  font-family: textFont;
+  color: #c2c2c2;
+  font-weight: 200;
+  padding-bottom: 0.5rem;
+  padding-top: 1rem;
+}
+.gameData_container-left,
+.gameData_container-rigth {
+  margin-top: 2em;
+}
+.spanDate {
+  margin-left: 1rem;
+  color: #e0e0e0;
+}
+.titleSpanDate {
+  color: #c2c2c2;
+  margin-top: 1rem;
+}
+.gameData_container {
+  display: flex;
+  gap: 5em;
+  margin-top: 2em;
+}
+.lastSpan {
+  margin-bottom: 1rem;
+}
+.genderSpan {
+  font-size: 1.3rem;
+  width: fit-content;
+}
+.title_gameDetail {
+  font-size: 4rem;
 }
