@@ -478,7 +478,28 @@ span {
     inset -4px 4px 4px rgba(0, 215, 255, 0.15), 4px 4px 4px rgba(0, 0, 0, 0.283),
     4px 4px 4px rgba(0, 0, 0, 0.083);
 }
-
+.topContainer-card {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.favorites-btn {
+  font-size: 2rem;
+  position: absolute;
+  right: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: 500ms ease-in-out;
+}
+.favorites-btn:hover > .fa-heart {
+  color: #0b9dec !important;
+  transition: 250ms ease-out;
+  font-size: 2.2rem;
+}
+.favorites-btn:clicked > .fa-heart {
+  color: red !important;
+}
 .title_listCard {
   font-family: textFont;
   font-size: 1.5rem;
@@ -660,8 +681,8 @@ span {
   margin-top: 7rem;
 }
 .picture_gameDetail {
-  width: 55%;
-  height: 30rem;
+  width: 50%;
+  height: 27rem;
   border-radius: 15px 0 0 15px;
 }
 .centerPictures {
@@ -683,8 +704,6 @@ span {
   -webkit-mask-image: linear-gradient(black, rgba(0, 0, 0, 0));
 }
 .screenPictures_container {
-  width: 450%;
-  height: 30rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -741,4 +760,9 @@ span {
 }
 .title_gameDetail {
   font-size: 4rem;
+}
+.section_favorites{
+  width: 80%;
+  margin: auto;
+  margin-top: 10rem;
 }

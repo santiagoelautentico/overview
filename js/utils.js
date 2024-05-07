@@ -1,6 +1,25 @@
 export const imprimir = (elemento, contenido) => {
   document.querySelector(`#${elemento}`).innerHTML = contenido;
 };
+
+// export const setLocalStorage = (clave, valor) => {
+//   if (typeof valor === "object") {
+//     valor = JSON.stringify(valor);
+//   }
+//   localStorage.setItem(clave, valor);
+// };
+
+// // funcion para obtener valor de localStorage por clave
+// //si es un objeto, lo convierto a objeto con JSON.parse
+// export const getLocalStorage = (clave) => {
+//   let valor = localStorage.getItem(clave);
+//   try {
+//     return JSON.parse(valor);
+//   } catch (error) {
+//     return valor;
+//   }
+// };
+
 export const Options = {
   method: "GET",
   Headers: {
@@ -8,9 +27,8 @@ export const Options = {
     "X-RapidAPI-Host": "free-to-play-games-database.p.rapidapi.com",
   },
 };
-export const API_URL = 'https://www.freetogame.com/api/games';
-export const API_URL_ID = 'https://www.freetogame.com/api/game';
-export const API_GENDER_URL = 'https://www.freetogame.com/api/games?category=';
-
+export const API_URL = "https://www.freetogame.com/api/games";
+export const API_URL_ID = "https://www.freetogame.com/api/game";
+export const API_GENDER_URL = "https://www.freetogame.com/api/games?category=";
 
 // export const redirectGameDetail = window.location.href = 'game.html'

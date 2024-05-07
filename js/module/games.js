@@ -1,4 +1,5 @@
 let cont = 6;
+let Keylist = "list";
 import {
   imprimir,
   API_URL,
@@ -19,6 +20,14 @@ class Games {
         window.location.href = `game.html?id=${div.dataset.id}`;
         this.getGameDetails(div.dataset.id, container);
         console.log("id", div.dataset.id);
+      });
+    });
+    const saveGames = document.querySelectorAll(".favorites-btn");
+    saveGames.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        localStorage.setItem("list", JSON.stringify(this.list[index]));
+        // console.log("algo", myGameDeserialize2);
+        // console.log(localStorage);
       });
     });
     const gameCategories = document.querySelectorAll(".categories");
@@ -55,7 +64,27 @@ class Games {
     imprimir(container, contentHtml);
     this.attachEventListeners(container);
   }
-
+  renderFavorites(container) {
+    const myGameDeserialize = JSON.parse(localStorage.getItem("list"));
+    console.log(localStorage, "pepe");
+    console.log("render", localStorage.getItem("list"));
+    document.querySelector(`#${container}`).innerHTML = `
+      <a>
+        <div class="card" data-id="${myGameDeserialize.id}">
+          <img src="${myGameDeserialize.thumbnail}" alt="${myGameDeserialize.title}" class="img_listCard viewTransition">
+          <div class="card_description">
+            <div class="topContainer-card">
+              <h2 class="title_listCard">${myGameDeserialize.title}</h2>
+              <button class='favorites-btn' id='favorites-btn'><i class="fa-solid fa-heart" style="color: #008dda;"></i></button>
+            </div>
+            <div class="plataform">${myGameDeserialize.platform}</div>
+              <h3 class="gender ${myGameDeserialize.genre}">${myGameDeserialize.genre}</h3>
+            </div>
+          </div>
+      </a>
+    `;
+    this.attachEventListeners(container);
+  }
   renderGameDetails(container, response) {
     console.log("rendergames", response);
     // response.renderGamePage()
@@ -70,7 +99,7 @@ class Games {
       response.developer,
       response.publisher,
       response.minimum_system_requirements,
-      response.screenshots,
+      response.screenshots
     );
 
     imprimir(container, game.renderGamePage());
@@ -104,9 +133,9 @@ class Games {
               game.id,
               game.title,
               game.thumbnail,
-              game.platform,
-              game.genre,
               game.release_date,
+              game.genre,
+              game.platform,
               game.developer
             )
         );
@@ -138,7 +167,6 @@ class Games {
         this.render("listOfGames");
       });
   }
-
 }
 
 export default Games;

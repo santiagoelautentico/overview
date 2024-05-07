@@ -4,11 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
-    <title>Document</title>
-    <!-- <meta name="view-transition" content="same-origin"> -->
+    <title>My Favorites</title>
   </head>
   <body>
-    <div class="background"></div>
     <header>
       <nav>
         <img
@@ -19,10 +17,9 @@
           id="profilePicture"
         />
         <ul class="menuHeader">
-          <li><a href="./index.html">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="">New realeses</a></li>
           <li><a href="">All games</a></li>
-          <li><a href="favorites.html">Favorites</a></li>
           <li>
             <select name="" id="">
               <option value="">Categories</option>
@@ -47,7 +44,6 @@
             placeholder="Search"
             class="searchNav"
             id="searchGames"
-            value="searchGames"
           />
           <button class="searchButton">
             <img
@@ -61,7 +57,12 @@
         <img src="./images/hamburguer.svg" alt="" type="svg" />
       </div>
     </header>
-    <section id="gameDetails" class="game_container"></section>
+    <div class="background"></div>
+    <section class="section_favorites">
+        <h2 class="title">My Favorites</h2>
+        <article id="favorites_container" class="favorites_container"></article>
+    </section>
+
+    <script type="module" src="./js/indexFavorites.js"></script>
   </body>
-  <script type="module" src="./js/indexGame.js"></script>
 </html>

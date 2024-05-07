@@ -6,11 +6,7 @@ const urlParams = new URLSearchParams(queryString);
 
 console.log(queryString);
 const gamePage = urlParams.get("id");
-
-console.log("el id es:", gamePage);
-
 const games = new Games();
-games.getGameDetails(gamePage).then(() => {
-  games.renderGameDetails("gameDetails");
+games.chargeGames(gamePage).then(() => {
+  games.renderFavorites("favorites_container");
 });
-

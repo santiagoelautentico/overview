@@ -31,7 +31,10 @@ export class Game {
             <div class="card" data-id="${this.id}">
                 <img src="${this.thumbnail}" alt="${this.title}" class="img_listCard viewTransition">
                 <div class="card_description">
-                    <h2 class="title_listCard">${this.title}</h2>
+                    <div class="topContainer-card">
+                      <h2 class="title_listCard">${this.title}</h2>
+                      <button class='favorites-btn' id='favorites-btn'><i class="fa-solid fa-heart" style="color: #008dda;"></i></button>
+                    </div>
                     <div class="${this.plataform} plataform">${this.platform}</div>
                     <h3 class="gender ${this.genre}">${this.genre}</h3>
                 </div>
@@ -43,7 +46,7 @@ export class Game {
 
   renderGamePage() {
     const gamePage = `
-      <article class='pictures_container'>
+      <article class='pictures_container' id='example'>
         <div class='centerPictures'>
           <img class='background-image_gameDetail' src='${this.screenshots[0].image}' alt='${this.title}'>
           <img class='picture_gameDetail' src='${this.thumbnail}' alt='${this.title}'>
@@ -83,5 +86,12 @@ export class Game {
       </article>
     `;
     return gamePage;
+  }
+
+  renderSavedPage() {
+    const savedPage = `
+     <h1>${this.title}</h1>
+    `;
+    return savedPage;
   }
 }
