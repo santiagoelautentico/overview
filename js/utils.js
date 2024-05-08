@@ -19,7 +19,19 @@ export const imprimir = (elemento, contenido) => {
 //     return valor;
 //   }
 // };
+export function loadGameLocalStorage(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+export function getGameLocalStorage(key, valueDefult){
+  const value = localStorage.getItem(key)
 
+  if(value) {
+    return value
+  }
+  else {
+    valueDefult
+  }
+}
 export const Options = {
   method: "GET",
   Headers: {

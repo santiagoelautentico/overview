@@ -28,7 +28,7 @@ export class Game {
   renderMiniCard() {
     const miniCard = `
         <a>
-            <div class="card" data-id="${this.id}">
+            <div class="card">
                 <img src="${this.thumbnail}" alt="${this.title}" class="img_listCard viewTransition">
                 <div class="card_description">
                     <div class="topContainer-card">
@@ -36,7 +36,10 @@ export class Game {
                       <button class='favorites-btn' id='favorites-btn'><i class="fa-solid fa-heart" style="color: #008dda;"></i></button>
                     </div>
                     <div class="${this.plataform} plataform">${this.platform}</div>
-                    <h3 class="gender ${this.genre}">${this.genre}</h3>
+                    <div class="button-section_card">
+                      <h3 class="gender ${this.genre}">${this.genre}</h3>
+                      <button class="btn-primary btn-details" data-id="${this.id}">See more</button>
+                    </div>
                 </div>
             </div>
         </a>

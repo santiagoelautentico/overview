@@ -1,5 +1,5 @@
 let cont = 6;
-let Keylist = "list";
+let KeylistFavorites = "listFavorites";
 import {
   imprimir,
   API_URL,
@@ -12,9 +12,10 @@ import { Game } from "./gamesRendering.js";
 class Games {
   constructor() {
     this.list = [];
+    this.listFavorites = [];
   }
   attachEventListeners(container) {
-    const gameDetails = document.querySelectorAll(".card");
+    const gameDetails = document.querySelectorAll(".btn-details");
     gameDetails.forEach((div, index) => {
       div.addEventListener("click", () => {
         window.location.href = `game.html?id=${div.dataset.id}`;
@@ -25,9 +26,9 @@ class Games {
     const saveGames = document.querySelectorAll(".favorites-btn");
     saveGames.forEach((button, index) => {
       button.addEventListener("click", () => {
-        localStorage.setItem("list", JSON.stringify(this.list[index]));
-        // console.log("algo", myGameDeserialize2);
-        // console.log(localStorage);
+        this.listFavorites.push(this.list[index])
+        console.log(this.listFavorites);
+        localStorage.setItem(KeylistFavorites, JSON.stringify(this.listFavorites))
       });
     });
     const gameCategories = document.querySelectorAll(".categories");
@@ -46,16 +47,6 @@ class Games {
       });
     });
   }
-  // attachEventListeners(container) {
-  //   const gameDetails = document.querySelectorAll(".card");
-  //   gameDetails.forEach((div, index) => {
-  //     div.addEventListener("mouseover", () => {
-  //       this.getGameDetailsPictures(div.dataset.id, container);
-  //       console.log(div.dataset.id);
-  //     });
-  //   });
-  // }
-
   render(container) {
     const contentHtml = this.list
       .slice(0, cont)
@@ -65,29 +56,33 @@ class Games {
     this.attachEventListeners(container);
   }
   renderFavorites(container) {
-    const myGameDeserialize = JSON.parse(localStorage.getItem("list"));
-    console.log(localStorage, "pepe");
+    const myGameDeserialize = JSON.parse(localStorage.getItem(KeylistFavorites));
+    console.log(localStorage);
     console.log("render", localStorage.getItem("list"));
-    document.querySelector(`#${container}`).innerHTML = `
+    let gamesFavoritesHtml = "";
+
+    for (let gameFavorite of myGameDeserialize) {
+      gamesFavoritesHtml += `
       <a>
-        <div class="card" data-id="${myGameDeserialize.id}">
-          <img src="${myGameDeserialize.thumbnail}" alt="${myGameDeserialize.title}" class="img_listCard viewTransition">
+        <div class="card" data-id="${gameFavorite.id}">
+          <img src="${gameFavorite.thumbnail}" alt="${gameFavorite.title}" class="img_listCard viewTransition">
           <div class="card_description">
             <div class="topContainer-card">
-              <h2 class="title_listCard">${myGameDeserialize.title}</h2>
+              <h2 class="title_listCard">${gameFavorite.title}</h2>
               <button class='favorites-btn' id='favorites-btn'><i class="fa-solid fa-heart" style="color: #008dda;"></i></button>
             </div>
-            <div class="plataform">${myGameDeserialize.platform}</div>
-              <h3 class="gender ${myGameDeserialize.genre}">${myGameDeserialize.genre}</h3>
+            <div class="plataform">${gameFavorite.platform}</div>
+              <h3 class="gender ${gameFavorite.genre}">${gameFavorite.genre}</h3>
             </div>
           </div>
       </a>
     `;
+    }
+    document.querySelector(`#${container}`).innerHTML = gamesFavoritesHtml
     this.attachEventListeners(container);
   }
   renderGameDetails(container, response) {
     console.log("rendergames", response);
-    // response.renderGamePage()
     const game = new Game(
       response.id,
       response.title,
