@@ -3,6 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper/css/effect-coverflow"
+    />
     <link rel="stylesheet" href="./css/style.css" />
     <title>Overview</title>
     <link rel="shortcut icon" href="images/iconWebPage.svg" type="svg" />
@@ -61,7 +69,7 @@
         <img src="./images/hamburguer.svg" alt="" type="svg" />
       </div>
     </header>
-    <section id="hero_container" class="hero_section"> 
+    <section id="hero_container" class="hero_section">
       <div class="pictureHero_section">
         <div class="pictureHero pic1"></div>
         <div class="pictureHero pic2"></div>
@@ -78,22 +86,26 @@
         <p>What are you waiting? for, start searching</p>
         <div class="buttonsHero_container">
           <button class="buttonHero" id="createAcount">
-            <img
-              src="./images/createButton.svg"
-              type="svg"
-              alt=""
-            />
+            <img src="./images/createButton.svg" type="svg" alt="" />
           </button>
           <button class="buttonHero" id="login">
-            <img
-              src="./images/loginButton.svg"
-              alt="login"
-              type="svg"
-            />
+            <img src="./images/loginButton.svg" alt="login" type="svg" />
           </button>
         </div>
       </div>
     </section>
+    <div class="swiper coverflow">
+      <div
+        class="swiper-wrapper"
+        data-swiper-autoplay="2000"
+        id="swiperWrapper"
+      ></div>
+      <div class="swiper-pagination"></div>
+      <div class="title-swiper">
+        <h3>EXPLORE THE</h3>
+        <h2>NEW RELEASES</h2>
+      </div>
+    </div>
     <div class="categories_container">
       <h3 class="categories_title">Categories</h3>
       <ul class="categories_list">
@@ -146,14 +158,37 @@
       </div>
       <div class="pictures_hover" id="pictures_hover"></div>
       <article id="listOfGames" class="listOfGames"></article>
-      
+
       <div class="seeMore">
         <h3>See more</h3>
       </div>
     </section>
     <div class="guardadas" id="guardadas"></div>
-    <section id="listOfGames2" class="listOfGames"></article>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.js"></script>
     <script type="module" src="./js/index.js"></script>
-    <script src="https://kit.fontawesome.com/e68b49459b.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/e68b49459b.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      var mySwiper = new Swiper(".swiper", {
+        loop: true,
+        speed: 1250,
+        autoplay: {
+          delay: 4000,
+        },
+        effect: "coverflow",
+        centeredSlides: true,
+        slidesPerView: "auto",
+        coverflowEffect: {
+          rotate: 0,
+          scale: 0.8,
+          depth: 500,
+          stretch: 0.5,
+          slideShadows: true,
+          modifier: 0.8,
+        },
+      });
+    </script>
   </body>
 </html>

@@ -114,7 +114,7 @@ p {
 .gender {
   font-family: titlesFont;
   font-size: 1rem;
-  width: 6.8rem;
+  width: 7.5rem;
   height: 2.5rem;
   border-radius: 5px;
   color: white;
@@ -527,7 +527,7 @@ span {
 .categories_container {
   position: absolute;
   color: white;
-  top: 110vh;
+  top: 186vh;
   background-color: #383b52;
   padding-block: 2em;
   padding-inline: 3em;
@@ -551,24 +551,28 @@ span {
 .categories:hover {
   cursor: pointer;
 }
-.button-section_card{
+.button-section_card {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.btn-primary{
+.btn-primary {
   font-family: "btn-font";
-  background: linear-gradient(var(--secondaryColor) 22%, var(--principalColor) 66%);
+  background: linear-gradient(
+    var(--secondaryColor) 22%,
+    var(--principalColor) 66%
+  );
   border: none;
   font-size: 1.3rem;
   padding: 0.8rem;
   color: white;
   cursor: pointer;
   border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px, inset 0px 2px 4px white;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px,
+    inset 0px 2px 4px white;
   transition: 500ms;
 }
-.btn-primary:hover{
+.btn-primary:hover {
   background: var(--principalColor);
 }
 @media only screen and (min-width: 100px) and (max-width: 1440px) {
@@ -784,8 +788,53 @@ span {
 .title_gameDetail {
   font-size: 4rem;
 }
-.section_favorites{
+.section_favorites {
   width: 80%;
   margin: auto;
   margin-top: 10rem;
+}
+
+/* ------------------------------------------------------SWIPER------------------------------------------------------------ */
+
+.swiper {
+  width: 90rem;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  margin-bottom: 10rem;
+  position: relative;
+}
+.swiper-slide {
+  width: 40rem;
+  border-radius: 40px;
+  padding: 3rem;
+}
+.imgRealese {
+  border-radius: 80px;
+  filter: blur(7px) brightness(0.5);
+  -webkit-mask-image: black;
+}
+.swiper-slide-active {
+  filter: blur(0px) brightness(1) !important;
+  filter: drop-shadow(0px 0px 20px rgb(0 0 0 / 50%)) !important;
+  cursor: pointer;
+}
+.title-swiper{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 0rem;
+  text-align: center;
+}
+.title-swiper > h3{
+  font-size: 2.5rem;
+  color: white;
+  font-family: titlesFont;
+  margin: -0.9rem;
+}
+.title-swiper > h2 {
+  font-size: 5.5rem;
+  text-align: center;
+  font-family: titlesFont;
+  color: var(--secondaryColor);
+  text-shadow: 0 5px 15px #41cae286;
 }

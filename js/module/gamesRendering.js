@@ -26,7 +26,7 @@ export class Game {
   }
 
   renderMiniCard() {
-    const miniCard = `
+    const miniCard = /* html */ `
         <a>
             <div class="card">
                 <img src="${this.thumbnail}" alt="${this.title}" class="img_listCard viewTransition">
@@ -48,7 +48,7 @@ export class Game {
   }
 
   renderGamePage() {
-    const gamePage = `
+    const gamePage = /* html */ `
       <article class='pictures_container' id='example'>
         <div class='centerPictures'>
           <img class='background-image_gameDetail' src='${this.screenshots[0].image}' alt='${this.title}'>
@@ -90,11 +90,10 @@ export class Game {
     `;
     return gamePage;
   }
-
-  renderSavedPage() {
-    const savedPage = `
-     <h1>${this.title}</h1>
+  renderNewRealease() {
+    const newRealease = /*html*/ `
+      <img class="swiper-slide imgRealese" data-id="${this.id}" src="${this.thumbnail}" alt="${this.title}" />
     `;
-    return savedPage;
+    return newRealease;
   }
 }

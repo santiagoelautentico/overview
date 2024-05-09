@@ -6,6 +6,7 @@ import {
   Options,
   API_URL_ID,
   API_GENDER_URL,
+  API_NEW_RELEASES,
 } from "../utils.js";
 import { Game } from "./gamesRendering.js";
 
@@ -16,7 +17,15 @@ class Games {
   }
   attachEventListeners(container) {
     const gameDetails = document.querySelectorAll(".btn-details");
-    gameDetails.forEach((div, index) => {
+    gameDetails.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        window.location.href = `game.html?id=${button.dataset.id}`;
+        this.getGameDetails(button.dataset.id, container);
+        console.log("id", button.dataset.id);
+      });
+    });
+    const gameDetailsSwiper = document.querySelectorAll(".imgRealese");
+    gameDetailsSwiper.forEach((div, index) => {
       div.addEventListener("click", () => {
         window.location.href = `game.html?id=${div.dataset.id}`;
         this.getGameDetails(div.dataset.id, container);
@@ -26,9 +35,12 @@ class Games {
     const saveGames = document.querySelectorAll(".favorites-btn");
     saveGames.forEach((button, index) => {
       button.addEventListener("click", () => {
-        this.listFavorites.push(this.list[index])
+        this.listFavorites.push(this.list[index]);
         console.log(this.listFavorites);
-        localStorage.setItem(KeylistFavorites, JSON.stringify(this.listFavorites))
+        localStorage.setItem(
+          KeylistFavorites,
+          JSON.stringify(this.listFavorites)
+        );
       });
     });
     const gameCategories = document.querySelectorAll(".categories");
@@ -55,8 +67,18 @@ class Games {
     imprimir(container, contentHtml);
     this.attachEventListeners(container);
   }
+  renderNewReleases(container) {
+    const contentHtml = this.list
+      .slice(0, 12)
+      .map((games) => games.renderNewRealease())
+      .join("");
+    imprimir(container, contentHtml);
+    this.attachEventListeners(container);
+  }
   renderFavorites(container) {
-    const myGameDeserialize = JSON.parse(localStorage.getItem(KeylistFavorites));
+    const myGameDeserialize = JSON.parse(
+      localStorage.getItem(KeylistFavorites)
+    );
     console.log(localStorage);
     console.log("render", localStorage.getItem("list"));
     let gamesFavoritesHtml = "";
@@ -78,7 +100,7 @@ class Games {
       </a>
     `;
     }
-    document.querySelector(`#${container}`).innerHTML = gamesFavoritesHtml
+    document.querySelector(`#${container}`).innerHTML = gamesFavoritesHtml;
     this.attachEventListeners(container);
   }
   renderGameDetails(container, response) {
@@ -144,7 +166,7 @@ class Games {
       });
   }
   categoriesGamesFetch(id) {
-    return fetch(`${API_GENDER_URL}${id}`)
+    return fetch(`${API_GENDER_URL}${id}`, Options)
       .then((res) => res.json())
       .then((response) => {
         this.list = response.map(
@@ -162,6 +184,27 @@ class Games {
         this.render("listOfGames");
       });
   }
+
+  newRealesesGamesFetch() {
+    return fetch(API_NEW_RELEASES, Options)
+      .then((res) => res.json())
+      .then((response) => {
+        this.list = response.map(
+          (game) =>
+            new Game(
+              game.id,
+              game.title,
+              game.thumbnail,
+              game.release_date,
+              game.genre,
+              game.platform,
+              game.developer
+            )
+        );
+      });
+  }
 }
+
+
 
 export default Games;
