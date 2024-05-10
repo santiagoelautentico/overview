@@ -8,19 +8,19 @@ import {
   API_GENDER_URL,
   API_NEW_RELEASES,
   getGameLocalStorage,
-  getLocalStorage
+  getLocalStorage,
 } from "../utils.js";
 import { Game } from "./gamesRendering.js";
 
 document.addEventListener("scroll", () => {
-  const header = document.querySelector("header")
+  const header = document.querySelector("header");
 
-  if(window.scrollY > 0){
-    header.classList.add("scrolled")
-  } else{
-    header.classList.remove("scrolled")
+  if (window.scrollY > 0) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
   }
-})
+});
 
 class Games {
   constructor() {
@@ -51,10 +51,7 @@ class Games {
         gameSaveArray.push(gamesFavoritesList);
         console.log(gameSaveArray, "hola");
 
-        localStorage.setItem(
-          KeylistFavorites,
-          JSON.stringify(gameSaveArray)
-        );
+        localStorage.setItem(KeylistFavorites, JSON.stringify(gameSaveArray));
       });
     });
     const gameCategories = document.querySelectorAll(".categories");
@@ -140,23 +137,7 @@ class Games {
     imprimir(container, game.renderGamePage());
     this.attachEventListeners(container);
   }
-  renderGameCategories(container, response) {
-    for (let i = 0; i < response.length; i++) {
-      const game = new Game(
-        response[i].id,
-        response[i].thumbnail,
-        response[i].title,
-        response[i].description,
-        response[i].genre,
-        response[i].platform,
-        response[i].release_date,
-        response[i].developer
-      );
-      console.log(response[i]);
-      imprimir(container, game.renderMiniCard());
-    }
-    this.attachEventListeners(container);
-  }
+
   chargeGames() {
     return fetch(API_URL, Options)
       .then((res) => res.json())
@@ -222,7 +203,5 @@ class Games {
       });
   }
 }
-
-
 
 export default Games;
