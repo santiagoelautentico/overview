@@ -6,6 +6,7 @@ export function loadGameLocalStorage(key, value) {
 }
 export function getGameLocalStorage(key, valueDefult){
   const value = localStorage.getItem(key)
+  console.log(value);
 
   if(value) {
     return value
@@ -14,6 +15,15 @@ export function getGameLocalStorage(key, valueDefult){
     valueDefult
   }
 }
+
+export const getLocalStorage = (clave) => {
+  let valor = localStorage.getItem(clave);
+  try {
+    return JSON.parse(valor);
+  } catch (error) {
+    return valor;
+  }
+};
 export const Options = {
   method: "GET",
   Headers: {

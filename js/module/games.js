@@ -7,6 +7,8 @@ import {
   API_URL_ID,
   API_GENDER_URL,
   API_NEW_RELEASES,
+  getGameLocalStorage,
+  getLocalStorage
 } from "../utils.js";
 import { Game } from "./gamesRendering.js";
 
@@ -23,11 +25,7 @@ document.addEventListener("scroll", () => {
 class Games {
   constructor() {
     this.list = [];
-    this.listFavorites = [];
   }
-
-  
-
   attachEventListeners(container) {
     const gameDetails = document.querySelectorAll(".btn-details");
     gameDetails.forEach((button, index) => {
@@ -48,11 +46,14 @@ class Games {
     const saveGames = document.querySelectorAll(".favorites-btn");
     saveGames.forEach((button, index) => {
       button.addEventListener("click", () => {
-        this.listFavorites.push(this.list[index]);
-        console.log(this.listFavorites);
+        let gamesFavoritesList = this.list[index];
+        let gameSaveArray = getLocalStorage(KeylistFavorites) || [];
+        gameSaveArray.push(gamesFavoritesList);
+        console.log(gameSaveArray, "hola");
+
         localStorage.setItem(
           KeylistFavorites,
-          JSON.stringify(this.listFavorites)
+          JSON.stringify(gameSaveArray)
         );
       });
     });
