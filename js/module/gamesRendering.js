@@ -38,7 +38,7 @@ export class Game {
                     <div class="${this.plataform} plataform">${this.platform}</div>
                     <div class="button-section_card">
                       <h3 class="gender ${this.genre}">${this.genre}</h3>
-                      <button class="btn-primary btn-details" data-id="${this.id}">See more</button>
+                      <button class="btn-primary btn-details" data-id="${this.id}">View Game</button>
                     </div>
                 </div>
             </div>

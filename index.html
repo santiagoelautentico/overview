@@ -18,21 +18,21 @@
   </head>
   <body>
     <div class="background"></div>
-    <header>
+    <header class="header">
       <nav>
         <img
-          src="./images/profile.svg"
+          src="./images/hamburguer.svg"
           alt="profile"
           type="svg"
-          class="profilePicture"
+          class="hamburguer iconNav"
           id="profilePicture"
         />
         <ul class="menuHeader">
           <li><a href="">Home</a></li>
           <li><a href="">New realeses</a></li>
-          <li><a href="">All games</a></li>
+          <li><a href="#allGames_container">All games</a></li>
           <li><a href="favorites.html">Favorites</a></li>
-          <li>
+          <!-- <li>
             <select name="" id="">
               <option value="">Categories</option>
               <option value="shooter" id="search" onclick="genderGames()">
@@ -46,27 +46,11 @@
               <option value="mmorpg" id="">MMORPG</option>
               <option value="card" id="">Card</option>
             </select>
-          </li>
+          </li> -->
         </ul>
       </nav>
       <div class="rigthSection">
-        <div class="inputSearch">
-          <input
-            type="text"
-            placeholder="Search"
-            class="searchNav"
-            id="searchGames"
-          />
-          <button class="searchButton">
-            <img
-              src="./images/buttonCircle.svg"
-              alt=""
-              class="iconSearch"
-              type="svg"
-            />
-          </button>
-        </div>
-        <img src="./images/hamburguer.svg" alt="" type="svg" />
+        <img src="./images/iconLogo.svg" alt="" type="svg" />
       </div>
     </header>
     <section id="hero_container" class="hero_section">
@@ -85,12 +69,8 @@
         <h1>Level Up Your Fun: Discover <span>Free Games</span> Platforms!</h1>
         <p>What are you waiting? for, start searching</p>
         <div class="buttonsHero_container">
-          <button class="buttonHero" id="createAcount">
-            <img src="./images/createButton.svg" type="svg" alt="" />
-          </button>
-          <button class="buttonHero" id="login">
-            <img src="./images/loginButton.svg" alt="login" type="svg" />
-          </button>
+          <button class="btn-primary">Create Acount</button>
+          <button class="btn-secondary">Login</button>
         </div>
       </div>
     </section>
@@ -163,7 +143,9 @@
         <h3>See more</h3>
       </div>
     </section>
-    <div class="guardadas" id="guardadas"></div>
+    <footer>
+      Footer
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.js"></script>
     <script type="module" src="./js/index.js"></script>
     <script

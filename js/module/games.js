@@ -10,11 +10,24 @@ import {
 } from "../utils.js";
 import { Game } from "./gamesRendering.js";
 
+document.addEventListener("scroll", () => {
+  const header = document.querySelector("header")
+
+  if(window.scrollY > 0){
+    header.classList.add("scrolled")
+  } else{
+    header.classList.remove("scrolled")
+  }
+})
+
 class Games {
   constructor() {
     this.list = [];
     this.listFavorites = [];
   }
+
+  
+
   attachEventListeners(container) {
     const gameDetails = document.querySelectorAll(".btn-details");
     gameDetails.forEach((button, index) => {
@@ -53,7 +66,7 @@ class Games {
     const seeMore = document.querySelectorAll(".seeMore");
     seeMore.forEach((div, index) => {
       div.addEventListener("click", () => {
-        cont = cont + 10;
+        cont = cont + 1;
         this.render(container);
         console.log(cont);
       });
@@ -93,8 +106,11 @@ class Games {
               <h2 class="title_listCard">${gameFavorite.title}</h2>
               <button class='favorites-btn' id='favorites-btn'><i class="fa-solid fa-heart" style="color: #008dda;"></i></button>
             </div>
-            <div class="plataform">${gameFavorite.platform}</div>
+            <p class="plataform">${gameFavorite.platform}</p>
+            <div class="buttonSection">
               <h3 class="gender ${gameFavorite.genre}">${gameFavorite.genre}</h3>
+              <button class="btn-primary btn-details" data-id="${gameFavorite.id}">View Game</button>
+            </div>
             </div>
           </div>
       </a>

@@ -58,6 +58,10 @@
   --action: #ff0000;
   --rpg: #ff8c00;
 }
+
+html {
+  scroll-behavior: smooth;
+}
 .seeMore {
   width: 65%;
   margin: auto;
@@ -178,15 +182,17 @@ header {
   gap: 2rem;
   padding: 0 5rem;
   height: 7rem;
-
-  background: linear-gradient(70deg, #263159, #008eda00);
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
   justify-content: space-between;
   top: 0;
   width: 100%;
-  position: absolute;
+  position: fixed;
+  z-index: 1000;
+  transition: 500ms ease-in-out;
 }
-
+.scrolled{
+  background-color: rgba(0, 0, 0, 0.329);
+  backdrop-filter: blur(10px);
+}
 nav {
   display: flex;
   align-items: center;
@@ -195,15 +201,10 @@ nav {
 .menuHeader {
   display: flex;
   gap: 1.5em;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 .profilePicture {
   width: 3.5rem;
-}
-.rigthSection {
-  width: 30%;
-  display: flex;
-  justify-content: space-between;
 }
 .inputSearch {
   width: 80%;
@@ -522,8 +523,13 @@ span {
   font-family: textFont;
   color: white;
   font-weight: 300;
+  font-size: 1rem;
 }
-
+.buttonSection{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .categories_container {
   position: absolute;
   color: white;
@@ -571,10 +577,39 @@ span {
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px,
     inset 0px 2px 4px white;
   transition: 500ms;
+  position: relative;
 }
-.btn-primary:hover {
-  background: var(--principalColor);
+.btn-primary::after{
+  content: "View Game";
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  transition: 500ms;
+  background: linear-gradient(
+    var(--secondaryColor) 0%,
+    var(--principalColor) 100%
+  );
+  color: white;
+  opacity: 0;
 }
+.btn-primary:hover::after{
+  opacity: 1;
+}
+.btn-secondary{
+  font-family: "btn-font";
+  border: none;
+  font-size: 1.3rem;
+  padding: 0.8rem;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px,
+    inset 0px 2px 4px rgb(189, 189, 189);
+}
+
 @media only screen and (min-width: 100px) and (max-width: 1440px) {
   .allGames_container {
     margin: auto;
@@ -721,7 +756,7 @@ span {
 .background-image_gameDetail {
   width: 100%;
   position: absolute;
-  top: 7rem;
+  top: 0;
   left: 0;
   height: 55vh;
   object-fit: cover;
@@ -838,3 +873,18 @@ span {
   color: var(--secondaryColor);
   text-shadow: 0 5px 15px #41cae286;
 }
+
+/* -----------------------------------------FOOTER--------------------------------------------------- */
+
+footer{
+  height: 10vh;
+  background-color: var(--principalColor);
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: titlesFont;
+  font-size: 2.5rem;
+  color: white;
+}
+

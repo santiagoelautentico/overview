@@ -9,21 +9,21 @@
   </head>
   <body>
     <div class="background"></div>
-    <header>
+    <header class="header">
       <nav>
         <img
-          src="./images/profile.svg"
+          src="./images/hamburguer.svg"
           alt="profile"
           type="svg"
-          class="profilePicture"
+          class="hamburguer iconNav"
           id="profilePicture"
         />
         <ul class="menuHeader">
-          <li><a href="./index.html">Home</a></li>
+          <li><a href="">Home</a></li>
           <li><a href="">New realeses</a></li>
-          <li><a href="">All games</a></li>
+          <li><a href="#gameDetails">All games</a></li>
           <li><a href="favorites.html">Favorites</a></li>
-          <li>
+          <!-- <li>
             <select name="" id="">
               <option value="">Categories</option>
               <option value="shooter" id="search" onclick="genderGames()">
@@ -37,31 +37,17 @@
               <option value="mmorpg" id="">MMORPG</option>
               <option value="card" id="">Card</option>
             </select>
-          </li>
+          </li> -->
         </ul>
       </nav>
       <div class="rigthSection">
-        <div class="inputSearch">
-          <input
-            type="text"
-            placeholder="Search"
-            class="searchNav"
-            id="searchGames"
-            value="searchGames"
-          />
-          <button class="searchButton">
-            <img
-              src="./images/buttonCircle.svg"
-              alt=""
-              class="iconSearch"
-              type="svg"
-            />
-          </button>
-        </div>
-        <img src="./images/hamburguer.svg" alt="" type="svg" />
+        <img src="./images/iconLogo.svg" alt="" type="svg" />
       </div>
     </header>
     <section id="gameDetails" class="game_container"></section>
+    <footer>
+      Footer
+    </footer>
   </body>
   <script type="module" src="./js/indexGame.js"></script>
 </html>
