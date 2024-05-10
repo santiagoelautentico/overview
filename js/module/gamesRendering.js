@@ -10,7 +10,8 @@ export class Game {
     date,
     developer,
     minimum_system_requirements,
-    screenshots
+    screenshots,
+    freetogame_profile_url
   ) {
     this.id = id;
     this.title = title;
@@ -23,6 +24,7 @@ export class Game {
     this.developer = developer;
     this.minimum_system_requirements = minimum_system_requirements;
     this.screenshots = screenshots;
+    this.freetogame_profile_url = freetogame_profile_url;
   }
 
   renderMiniCard() {
@@ -83,8 +85,9 @@ export class Game {
               <p class='titleSpanDate'>Memory:<span class='spanDate'>${this.minimum_system_requirements.memory}</span></p>
               <p class='titleSpanDate'>Graphics:<span class='spanDate'>${this.minimum_system_requirements.graphics}</span></p>
               <p class='titleSpanDate'>Storage::<span class='spanDate'>${this.minimum_system_requirements.storage}</span></p>
-              </div>
+            </div>
           </div>
+          <p>Download Link: <a href="${this.freetogame_profile_url}"><i class="fa-solid fa-download"></i></a></p>
         </div>
       </article>
     `;

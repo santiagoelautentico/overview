@@ -67,7 +67,7 @@ class Games {
     const seeMore = document.querySelectorAll(".seeMore");
     seeMore.forEach((div, index) => {
       div.addEventListener("click", () => {
-        cont = cont + 1;
+        cont = cont + 4;
         this.render(container);
         console.log(cont);
       });
@@ -133,7 +133,8 @@ class Games {
       response.developer,
       response.publisher,
       response.minimum_system_requirements,
-      response.screenshots
+      response.screenshots,
+      response.freetogame_profile_url
     );
 
     imprimir(container, game.renderGamePage());
