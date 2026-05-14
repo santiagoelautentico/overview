@@ -55,10 +55,13 @@ class Games {
       });
     });
     const gameCategories = document.querySelectorAll(".categories");
-    gameCategories.forEach((li, index) => {
-      li.addEventListener("click", () => {
-        this.categoriesGamesFetch(li.dataset.id);
-        console.log(li.dataset.id);
+    gameCategories.forEach((li) => {
+      // Elimina listeners viejos clonando el nodo
+      const newLi = li.cloneNode(true);
+      li.parentNode.replaceChild(newLi, li);
+      newLi.addEventListener("click", () => {
+        this.categoriesGamesFetch(newLi.dataset.id);
+        console.log(newLi.dataset.id);
       });
     });
     const seeMore = document.querySelectorAll(".seeMore");
@@ -88,7 +91,7 @@ class Games {
   }
   renderFavorites(container) {
     const myGameDeserialize = JSON.parse(
-      localStorage.getItem(KeylistFavorites)
+      localStorage.getItem(KeylistFavorites),
     );
     console.log(localStorage);
     console.log("render", localStorage.getItem("list"));
@@ -131,7 +134,7 @@ class Games {
       response.publisher,
       response.minimum_system_requirements,
       response.screenshots,
-      response.freetogame_profile_url
+      response.freetogame_profile_url,
     );
 
     imprimir(container, game.renderGamePage());
@@ -152,8 +155,8 @@ class Games {
               game.release_date,
               game.genre,
               game.platform,
-              game.developer
-            )
+              game.developer,
+            ),
         );
       });
   }
@@ -177,8 +180,8 @@ class Games {
               game.release_date,
               game.genre,
               game.platform,
-              game.developer
-            )
+              game.developer,
+            ),
         );
         this.render("listOfGames");
       });
@@ -197,8 +200,8 @@ class Games {
               game.release_date,
               game.genre,
               game.platform,
-              game.developer
-            )
+              game.developer,
+            ),
         );
       });
   }
